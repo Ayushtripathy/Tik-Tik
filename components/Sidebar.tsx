@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
 import { ImCancelCircle } from "react-icons/im";
-import GoogleLogin from "react-google-login";
 import Discover from "./Discover";
 import SuggestedAccounts from "./SuggestedAccounts";
 import Footer from "./Footer";
@@ -48,7 +47,7 @@ const Sidebar: NextPage = () => {
               <p className="text-gray-400">
                 Login to Like and Comment on Videos
               </p>
-              <div className="pr-4">
+              {/* <div className="pr-4">
                 <GoogleLogin
                   clientId=""
                   render={(renderProps) => (
@@ -67,7 +66,7 @@ const Sidebar: NextPage = () => {
                   onFailure={() => {}}
                   cookiePolicy="single_host_origin"
                 />
-              </div>
+              </div> */}
             </div>
           )}
           <Discover />
