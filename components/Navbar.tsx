@@ -58,7 +58,7 @@ const Navbar = () => {
             )}
             <button
               type="button"
-              className="px-2"
+              className="px-2 hover:scale-125 transition duration-150 ease-in-out"
               onClick={() => {
                 googleLogout();
                 removeUser();

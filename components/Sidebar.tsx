@@ -26,7 +26,11 @@ const Sidebar: NextPage = () => {
         className="block xl:hidden m-2 ml-4 mt-3 text-xl"
         onClick={() => setShowSidebar((prevState) => !prevState)}
       >
-        {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
+        {showSidebar ? (
+          <ImCancelCircle className="ml-3 cursor-pointer hover:text-[#F51997]" />
+        ) : (
+          <AiOutlineMenu />
+        )}
       </div>
       {showSidebar && (
         <div className="xl:w-400 w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 ">
@@ -42,33 +46,6 @@ const Sidebar: NextPage = () => {
               </div>
             </Link>
           </div>
-          {!userProfile && (
-            <div className="px-2 py-4  hidden xl:block">
-              <p className="text-gray-400">
-                Login to Like and Comment on Videos
-              </p>
-              {/* <div className="pr-4">
-                <GoogleLogin
-                  clientId=""
-                  render={(renderProps) => (
-                    <button
-                      className="bg-white text-lg cursor-pointer text-[#F51997] 
-                      border-[1px] border-[#F51997] font-semibold
-                       px-6 py-3 rounded-md outline-none w-full mt-3
-                        hover:text-white hover:bg-[#F51997]"
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      Login
-                    </button>
-                  )}
-                  onSuccess={() => {}}
-                  onFailure={() => {}}
-                  cookiePolicy="single_host_origin"
-                />
-              </div> */}
-            </div>
-          )}
           <Discover />
           <SuggestedAccounts />
           <Footer />
