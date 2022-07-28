@@ -10,8 +10,6 @@ interface IProps {
 }
 
 const Home = ({ videos }: IProps) => {
-  console.log(videos);
-
   return (
     <div>
       <Head>
