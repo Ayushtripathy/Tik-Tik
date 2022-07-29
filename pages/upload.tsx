@@ -124,7 +124,7 @@ const Upload = () => {
                           MP4 or WebM or ogg <br />
                           720x1280 resolution or higher <br />
                           Up to 10 minutes <br />
-                          Less than 2 GB
+                          Less than 200 MB
                         </p>
                         <p className="bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
                           Select file
