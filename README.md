@@ -11,6 +11,7 @@
 * Sanity.io
 * Typescipt
 * Zustand
+* React-O-Auth
 
 
 ## Live Link
