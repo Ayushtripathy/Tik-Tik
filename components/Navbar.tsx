@@ -12,10 +12,15 @@ import { createOrGetUser } from "../utils";
 import Logo from "../utils/tiktik-logo.png";
 
 const Navbar = () => {
+  const [user, setUser] = useState<IUser | null>();
   const [searchText, setSearchText] = useState("");
 
   const { userProfile, addUser, removeUser } = useAuthStore();
   const router = useRouter();
+
+  useEffect(() => {
+    setUser(userProfile);
+  }, [userProfile]);
 
   const handleSearch = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -65,7 +70,7 @@ const Navbar = () => {
         </form>
       </div>
       <div>
-        {userProfile ? (
+        {user ? (
           <div className="flex gap-5 md:gap-10">
             <Link href="/upload">
               <button
@@ -77,18 +82,18 @@ const Navbar = () => {
                 <span className="hidden md:block">Upload</span>
               </button>
             </Link>
-            {userProfile.image && (
-              <Link href="/">
-                <>
+            {user.image && (
+              <Link href={`/profile/${user._id}`}>
+                <div>
                   <Image
                     width={40}
                     height={40}
                     className="rounded-full cursor-pointer"
-                    src={userProfile.image}
-                    alt="profile photo"
+                    src={user.image}
+                    alt="profile-photo"
                     // layout="responsive"
                   />
-                </>
+                </div>
               </Link>
             )}
             <button
@@ -108,7 +113,7 @@ const Navbar = () => {
               createOrGetUser(response, addUser);
             }}
             onError={() => {
-              console.log("Error");
+              alert("Login Failed");
             }}
           />
         )}

@@ -19,6 +19,7 @@ const LikeButton: NextPage<IProps> = ({
 }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const { userProfile }: any = useAuthStore();
+  //If curr user has liked post already
   let filterLikes = likes?.filter(
     (item: any) => item._ref === userProfile?._id
   );

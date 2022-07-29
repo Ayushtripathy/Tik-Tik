@@ -18,8 +18,8 @@ const Home = ({ videos }: IProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col gap-10 videos h-full">
-        {videos.length ? (
-          videos.map((video: Video) => (
+        {videos?.length ? (
+          videos?.map((video: Video) => (
             <VideoCard post={video} key={video._id} />
           ))
         ) : (
@@ -35,11 +35,10 @@ export const getServerSideProps = async ({
 }: {
   query: { topic: string };
 }) => {
-  let response = null;
+  let response = await axios.get(`${BASE_URL}/api/post`);
+
   if (topic) {
     response = await axios.get(`${BASE_URL}/api/discover/${topic}`);
-  } else {
-    response = await axios.get(`${BASE_URL}/api/post`);
   }
 
   return {

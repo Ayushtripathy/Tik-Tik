@@ -20,7 +20,7 @@ const Discover: NextPage = () => {
         Popular topics
       </p>
       <div className="flex gap-3 flex-wrap">
-        {topics.map((item) => (
+        {topics?.map((item) => (
           <Link href={`/?topic=${item.name}`} key={item.name}>
             <div
               className={topic === item.name ? activeTopicStyle : topicStyle}

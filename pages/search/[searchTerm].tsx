@@ -12,10 +12,11 @@ import { IUser, Video } from "../../types";
 import Head from "next/head";
 
 const Search = ({ videos }: { videos: Video[] }) => {
-  const [isAccounts, setIsAccounts] = useState<Boolean>(false);
+  const [isAccounts, setIsAccounts] = useState(false);
+  const { allUsers }: { allUsers: IUser[] } = useAuthStore();
+
   const router = useRouter();
   const { searchTerm }: any = router.query;
-  const { allUsers }: { allUsers: IUser[] } = useAuthStore();
 
   const searchedAccounts = allUsers.filter((user: IUser) =>
     user.userName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -49,7 +50,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
         {isAccounts ? (
           <div className="md:mt-16">
             {searchedAccounts?.length > 0 ? (
-              searchedAccounts.map((user: IUser, idx: number) => (
+              searchedAccounts?.map((user: IUser, idx: number) => (
                 <Link href={`/profile/${user._id}`} key={idx}>
                   <div className=" flex gap-3 p-2 cursor-pointer font-semibold rounded border-b-2 border-gray-200">
                     <div>
@@ -82,7 +83,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
         ) : (
           <div className="md:mt-16 flex flex-wrap gap-6 md:justify-start">
             {videos?.length ? (
-              videos.map((video: Video, idx) => (
+              videos?.map((video: Video, idx) => (
                 <VideoCard post={video} key={idx} />
               ))
             ) : (

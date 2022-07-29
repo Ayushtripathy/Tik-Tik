@@ -10,6 +10,6 @@ export default async function handler(
 
     client
       .createIfNotExists(user)
-      .then(() => res.status(200).json("Login Success"));
+      .then(() => res.status(200).json("Login Successful"));
   }
 }

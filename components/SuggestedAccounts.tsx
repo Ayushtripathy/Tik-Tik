@@ -3,7 +3,6 @@ import Image from "next/image";
 import { NextPage } from "next";
 import Link from "next/link";
 import { GoVerified } from "react-icons/go";
-
 import { IUser } from "../types";
 
 interface IProps {
